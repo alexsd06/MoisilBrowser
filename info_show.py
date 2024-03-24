@@ -6,9 +6,14 @@ copii_list=json.loads(jsonStr)
 while True:
     copil=input ("Scrie numele: ")
     for prunc in copii_list:
-        nume=prunc[0]
-        clasa=prunc[1]
-        if copil in nume or nume in copil:
-            print ("Found match: "+nume+" in class "+clasa)
+        nume_copil=prunc[0]
+        clasa_copil=prunc[1]
+        copil_good=True
+        for nume in copil.split(' '):
+            if nume not in nume_copil:
+                copil_good=False
+                break
+        if copil_good==True:
+            print ("Found match: "+nume_copil+" in class "+clasa_copil)
     print ("-------------------------------------------")
     
